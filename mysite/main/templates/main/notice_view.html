@@ -41,15 +41,16 @@
 			</ul>
 		</div>
 		<!-- //bodytext_area -->
-		<form method="post" name="rForm">{% csrf_token %}</form>
+		<form method="POST" id="rForm" name="rForm">{% csrf_token %}</form>
 	</div>
 	<!-- //container -->
 	
 	<script>
 		function onRemoveClick(id){
 			if (confirm('정말 삭제 하시겠습니까?')){
-				document.rForm.setAttribute("action","/notice/remove/"+id);
-				document.rForm.submit();
+				let form = document.querySelector("#rForm");
+				form.setAttribute("action","/notice/remove/"+id);
+				form.submit();
 			}
 			return false;
 		}
